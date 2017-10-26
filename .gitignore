@@ -29,7 +29,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 ### Linux template
-*~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
@@ -46,7 +45,6 @@ Temporary Items
 # Swap
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
-[._]s[a-v][a-z]
 [._]sw[a-p]
 
 # Session
@@ -55,7 +53,6 @@ Session.vim
 # Temporary
 .netrwhist
 # Auto-generated tag files
-tags
 ### Windows template
 # Windows thumbnail cache files
 Thumbs.db
