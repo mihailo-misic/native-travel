@@ -1,0 +1,24 @@
+{
+  "cities": [
+    {
+      "name" : "Belgrade",
+      "image": "belgrade",
+      "pop"  : 100000
+    },
+    {
+      "name" : "Novi sad",
+      "image": "novi-sad",
+      "pop"  : 10000
+    },
+    {
+      "name" : "Nis",
+      "image": "nis",
+      "pop"  : 1000
+    },
+    {
+      "name" : "Cacak",
+      "image": "cacak",
+      "pop"  : 100
+    }
+  ]
+}

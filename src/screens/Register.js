@@ -63,7 +63,6 @@ class Register extends Component {
               <FormInput
                 autoCapitalize="none"
                 autoCorrect={false}
-                autoFocus={true}
                 keyboardType="email-address"
                 placeholder="user@gmail.com"
                 returnKeyType="next"

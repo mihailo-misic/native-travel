@@ -9,6 +9,7 @@ import React, {Component} from 'react';
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import ReduxThunk from 'redux-thunk'
+import logger from 'redux-logger'
 
 import reducers from './src/reducers'
 import AppWithNavigationState from './src/AppNavigator';
@@ -19,7 +20,7 @@ export default class App extends Component {
   }
 
   render() {
-    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk, logger));
 
     return (
       <Provider store={store}>

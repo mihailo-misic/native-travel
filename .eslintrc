@@ -42,6 +42,7 @@
     "comma-dangle"                          : 0,
     "react-native/no-unused-styles"         : 2,
     "react-native/split-platform-components": 2,
-    "react/prop-types"                      : "error"
+    "react/prop-types"                      : "error",
+    "no-console"                            : 0
   }
 }

@@ -14,5 +14,7 @@ export const
   FIRST_NAME_CHANGED = 'first_name_changed',
   LAST_NAME_CHANGED = 'last_name_changed',
 
+  DATA_FETCH_SUCCESS = 'data_fetch_success',
+
   LOGOUT_USER = 'logout_user'
 ;
