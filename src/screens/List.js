@@ -1,39 +1,36 @@
 // @flow
 
 import React, {Component} from 'react';
-import {Image, ListView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {ButtonGroup, Card, Text} from "react-native-elements";
 import _ from 'lodash';
 
 import {dataFetch} from "../actions/DataActions";
+import {Spinner} from "../components/Spinner";
 
 class List extends Component {
-  constructor() {
-    super();
-    this.state = {
-      sIndex: 0
-    };
-    this.onOrderPress = this.onOrderPress.bind(this)
-  }
+  renderRow = ({index, item}) => {
+    return (
+      <TouchableOpacity onPress={() => this.onCardPress(item)}>
+        <Card containerStyle={{padding: 0}} flexDirection="row">
+          <Image
+            style={styles.thumbImage}
+            resizeMode="cover"
+            source={require(`../../assets/img/ph.png`)}
+          />
+          <View style={styles.textBox}>
+            <Text h4>{item.name}</Text>
+            <Text h5>{item.pop} residents</Text>
+          </View>
+        </Card>
+      </TouchableOpacity>
+    );
+  };
 
   componentWillMount() {
     this.props.dataFetch();
-
-    this.createDataSource(this.props)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.createDataSource(nextProps)
-  }
-
-  createDataSource({data}) {
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-
-    this.dataSource = ds.cloneWithRows(data)
   }
 
   onOrderPress(sIndex) {
@@ -53,21 +50,41 @@ class List extends Component {
     console.log("ORDERING BY Name")
   }
 
-  renderRow(obj) {
-    return (<TouchableOpacity onPress={() => this.onCardPress('cities')}>
-        <Card containerStyle={{padding: 0}} flexDirection="row">
-          <Image
-            style={styles.thumbImage}
-            resizeMode="cover"
-            source={require(`../../assets/img/city@x2.jpg`)}
-          />
-          <View style={styles.textBox}>
-            <Text h4>{obj.name}</Text>
-            <Text h5>{obj.pop} residents</Text>
-          </View>
-        </Card>
-      </TouchableOpacity>
-    );
+  constructor() {
+    super();
+    this.state = {
+      sIndex: 0
+    };
+
+    this.onOrderPress = this.onOrderPress.bind(this);
+  }
+
+  keyExtractor(item, index) {
+    return index;
+  }
+
+  onCardPress(details) {
+    this.props.navigation.navigate('Detail', {item: details})
+  }
+
+  renderList() {
+    if (this.props.data[0]) {
+      return (
+        <FlatList
+          enableEmptySections
+          data={this.props.data}
+          extraData={this.props}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderRow}
+        />
+      )
+    }
+
+    return (
+      <View style={{paddingTop: 60}}>
+        <Spinner size="large"/>
+      </View>
+    )
   }
 
   render() {
@@ -75,7 +92,7 @@ class List extends Component {
     const {sIndex} = this.state;
 
     return (
-      <View>
+      <View style={{flex: 1}}>
         <Card containerStyle={styles.coverCard}>
           <ButtonGroup
             onPress={this.onOrderPress}
@@ -85,11 +102,7 @@ class List extends Component {
         </Card>
 
         {/* Cities */}
-        <ListView
-          enableEmptySections
-          dataSource={this.dataSource}
-          renderRow={this.renderRow}
-        />
+        {this.renderList()}
       </View>
     )
   }
@@ -119,7 +132,7 @@ List.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const data = _.map(state.data, (val, uid) => {
+  const data = _.map(state.data.data, (val, uid) => {
     return {...val, uid};
   });
 

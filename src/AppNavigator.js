@@ -11,6 +11,7 @@ import Register from "./screens/Register";
 import Main from "./screens/Main";
 import List from "./screens/List";
 import LogoutButton from "./components/LogoutButton";
+import Detail from "./screens/Detail";
 
 const SignedOut = StackNavigator({
   Login: {
@@ -45,6 +46,13 @@ const SignedIn = StackNavigator({
       headerRight: <LogoutButton/>
     })
   },
+  Detail: {
+    screen: Detail,
+    navigationOptions: ({navigation}) => ({
+      title: `${ucFirst(navigation.state.params.item.name)}`,
+      headerRight: <LogoutButton/>
+    })
+  },
 });
 
 export const AppNavigator = StackNavigator({
@@ -58,7 +66,7 @@ export const AppNavigator = StackNavigator({
       gesturesEnabled: false,
     },
   },
-});
+}, {initialRouteName: 'SignedIn'});
 
 class AppWithNavigationState extends Component {
   render() {

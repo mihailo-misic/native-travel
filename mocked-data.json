@@ -1,0 +1,70 @@
+{
+  "cities": [
+    {
+      "name" : "Belgrade",
+      "image": "cities/belgrade@x2.jpg",
+      "pop"  : 100000
+    },
+    {
+      "name" : "Novi sad",
+      "image": "cities/novi-sad@x2.jpg",
+      "pop"  : 10000
+    },
+    {
+      "name" : "Nis",
+      "image": "cities/nis@x2.jpg",
+      "pop"  : 1000
+    },
+    {
+      "name" : "Čačak",
+      "image": "cacak@x2.jpg",
+      "pop"  : 100
+    }
+  ],
+
+  "regions": [
+    {
+      "name" : "Vojvodina",
+      "image": "regions/vojvodina@x2.jpg",
+      "pop"  : 100000
+    },
+    {
+      "name" : "Belgrade",
+      "image": "regions/belgrade@x2.jpg",
+      "pop"  : 10000
+    },
+    {
+      "name" : "Šumadija",
+      "image": "regions/sumadija@x2.jpg",
+      "pop"  : 1000
+    }
+  ],
+
+  "nat-parks": [
+    {
+      "name" : "Đerdap",
+      "image": "nat-parks/derdap@x2.jpg",
+      "pop"  : 100000
+    },
+    {
+      "name" : "Kopaonik",
+      "image": "nat-parks/kopaonik@x2.jpg",
+      "pop"  : 10000
+    },
+    {
+      "name" : "Tara",
+      "image": "nat-parks/tara@x2.jpg",
+      "pop"  : 1000
+    },
+    {
+      "name" : "Šar mountain",
+      "image": "nat-parks/sar-mountain@x2.jpg",
+      "pop"  : 100
+    },
+    {
+      "name" : "Fruška gora",
+      "image": "nat-parks/fruska-gora@x2.jpg",
+      "pop"  : 10
+    }
+  ]
+}
