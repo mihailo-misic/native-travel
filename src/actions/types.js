@@ -15,6 +15,9 @@ export const
   LAST_NAME_CHANGED = 'last_name_changed',
 
   DATA_FETCH_SUCCESS = 'data_fetch_success',
+  DATA_CLEAR = 'data_clear',
+  DATA_SORT_POP = 'data_sort_pop',
+  DATA_SORT_NAME = 'data_sort_name',
 
   LOGOUT_USER = 'logout_user'
 ;

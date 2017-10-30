@@ -5,11 +5,14 @@ import {Image, ScrollView, StyleSheet, TouchableOpacity, View} from 'react-nativ
 import {connect} from 'react-redux';
 import {Card, Text} from "react-native-elements";
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 import {logoutUser} from "../actions/AuthActions";
+import {dataClear} from "../actions/DataActions";
 
 class Main extends Component {
   onCardPress(section) {
+    this.props.dataClear();
     this.props.navigation.navigate('List', {section})
   }
 
@@ -84,4 +87,12 @@ Main.propTypes = {
   navigation: PropTypes.object,
 };
 
-export default connect(null, {logoutUser})(Main)
+const mapStateToProps = (state) => {
+  const data = _.map(state.data.data, (val, uid) => {
+    return {...val, uid};
+  });
+
+  return {data}
+};
+
+export default connect(null, {logoutUser, dataClear})(Main)

@@ -3,8 +3,10 @@
 import React, {Component} from 'react';
 import {Image, ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
-import {Card, Text} from "react-native-elements";
+import {Card, Icon, Text} from "react-native-elements";
 import PropTypes from 'prop-types';
+
+import Sourcer from '../../assets/img/Sourcer';
 
 class Detail extends Component {
   onCardPress(section) {
@@ -12,17 +14,21 @@ class Detail extends Component {
   }
 
   render() {
+    const {item} = this.props.navigation.state.params;
+
     return (
       <ScrollView>
-        <Image source={require('../../assets/img/serbia@x2.jpg')} style={styles.coverImage}/>
+        <Image source={Sourcer.getImage(item.image)} style={styles.coverImage}/>
 
         {/* Map */}
-        <TouchableOpacity onPress={() => this.onCardPress('Map')}>
+        <TouchableOpacity onPress={() => this.onCardPress('map')}>
           <Card containerStyle={{padding: 0}} flexDirection="row">
-            <Image
-              style={styles.thumbImage}
-              resizeMode="cover"
-              source={require('../../assets/img/map@x2.jpeg')}
+            <Icon
+              name="google-maps"
+              style={styles.thumbIcon}
+              size={40}
+              type="material-community"
+              color="#42A5F5"
             />
             <View style={styles.textBox}>
               <Text h4>Map</Text>
@@ -33,10 +39,12 @@ class Detail extends Component {
         {/* Sights */}
         <TouchableOpacity onPress={() => this.onCardPress('sights')}>
           <Card containerStyle={{padding: 0}} flexDirection="row">
-            <Image
-              style={styles.thumbImage}
-              resizeMode="cover"
-              source={require('../../assets/img/sights@x2.png')}
+            <Icon
+              name="camera"
+              style={styles.thumbIcon}
+              size={40}
+              type="material-community"
+              color="#42A5F5"
             />
             <View style={styles.textBox}>
               <Text h4>Sights</Text>
@@ -45,26 +53,30 @@ class Detail extends Component {
         </TouchableOpacity>
 
         {/* Hotels */}
-        <TouchableOpacity onPress={() => this.onCardPress('national-parks')}>
+        <TouchableOpacity onPress={() => this.onCardPress('hotels')}>
           <Card containerStyle={{padding: 0}} flexDirection="row">
-            <Image
-              style={styles.thumbImage}
-              resizeMode="cover"
-              source={require('../../assets/img/hotels@x2.png')}
+            <Icon
+              name="hotel"
+              style={styles.thumbIcon}
+              size={40}
+              type="material-community"
+              color="#42A5F5"
             />
             <View style={styles.textBox}>
-              <Text h4>National parks</Text>
+              <Text h4>Hotels</Text>
             </View>
           </Card>
         </TouchableOpacity>
 
         {/* Restaurants */}
-        <TouchableOpacity onPress={() => this.onCardPress('national-parks')}>
+        <TouchableOpacity onPress={() => this.onCardPress('restaurants')}>
           <Card containerStyle={{padding: 0}} flexDirection="row">
-            <Image
-              style={styles.thumbImage}
-              resizeMode="cover"
-              source={require('../../assets/img/restaurants@x2.jpg')}
+            <Icon
+              name="restaurant-menu"
+              style={styles.thumbIcon}
+              size={40}
+              type="material"
+              color="#42A5F5"
             />
             <View style={styles.textBox}>
               <Text h4>Restaurants</Text>
@@ -82,9 +94,10 @@ const styles = StyleSheet.create({
     height: 200,
     width: "100%",
   },
-  thumbImage: {
-    width: 80,
-    height: 80,
+  thumbIcon: {
+    width: 60,
+    height: 60,
+    padding: 10,
   },
   textBox: {
     justifyContent: 'center',

@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 import {ButtonGroup, Card, Text} from "react-native-elements";
 import _ from 'lodash';
 
-import {dataFetch} from "../actions/DataActions";
+import Sourcer from '../../assets/img/Sourcer';
+import {dataFetch, dataSortName, dataSortPop} from "../actions/DataActions";
 import {Spinner} from "../components/Spinner";
 
 class List extends Component {
@@ -18,7 +19,7 @@ class List extends Component {
           <Image
             style={styles.thumbImage}
             resizeMode="cover"
-            source={require(`../../assets/img/ph.png`)}
+            source={Sourcer.getImage(item.image)}
           />
           <View style={styles.textBox}>
             <Text h4>{item.name}</Text>
@@ -30,7 +31,7 @@ class List extends Component {
   };
 
   componentWillMount() {
-    this.props.dataFetch();
+    this.props.dataFetch(this.props.navigation.state.params.section);
   }
 
   onOrderPress(sIndex) {
@@ -43,11 +44,13 @@ class List extends Component {
   }
 
   orderByPopularity() {
-    console.log("ORDERING BY POP")
+    console.log("ORDERING BY POP");
+    this.props.dataSortPop();
   }
 
   orderByName() {
-    console.log("ORDERING BY Name")
+    console.log("ORDERING BY Name");
+    this.props.dataSortName();
   }
 
   constructor() {
@@ -139,4 +142,4 @@ const mapStateToProps = (state) => {
   return {data}
 };
 
-export default connect(mapStateToProps, {dataFetch})(List)
+export default connect(mapStateToProps, {dataFetch, dataSortName, dataSortPop})(List)
