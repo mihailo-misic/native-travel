@@ -1,4 +1,6 @@
 node_modules/
+android/
+ios/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### macOS template
