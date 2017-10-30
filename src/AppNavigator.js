@@ -66,7 +66,7 @@ export const AppNavigator = StackNavigator({
       gesturesEnabled: false,
     },
   },
-}, {initialRouteName: 'SignedIn'});
+}, {initialRouteName: 'SignedOut'});
 
 class AppWithNavigationState extends Component {
   render() {
