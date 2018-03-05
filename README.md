@@ -1,9 +1,11 @@
-# native-travel
+# Native Travel
 Traveling application for mobile devices
 
 ## Requirements
 - **Node** `(> 6)`
 - **NPM** `(> 5)`
+
+<br>
 
 ## Day-to-day usage
 
