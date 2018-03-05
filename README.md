@@ -9,11 +9,11 @@ Traveling application for mobile devices
 
 ## Day-to-day usage
 
-To run the application on android:
-- Start an emulator using AndroidStudio
+> To run the application on android:
+- Start an emulator using [AndroidStudio](https://developer.android.com/studio/run/emulator.html)
 - Run: `react-native run-android`
 
-To run the application on iPhone:
+> To run the application on iPhone:
 - Run: `react-native run-ios`
 
 <br>
