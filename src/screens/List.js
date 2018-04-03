@@ -8,7 +8,7 @@ import {ButtonGroup, Card, Text} from "react-native-elements";
 import _ from 'lodash';
 
 import Sourcer from '../../assets/img/Sourcer';
-import {dataFetch, dataSortName, dataSortPop} from "../actions/DataActions";
+import {dataFetch, dataSortName, dataSortPop} from "../actions";
 import {Spinner} from "../components/Spinner";
 
 class List extends Component {
